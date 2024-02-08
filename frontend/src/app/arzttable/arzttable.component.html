@@ -1,0 +1,69 @@
+<div class="mat-elevation-z8" style="font-family: 'times', sans-serif;">
+  <table mat-table class="full-width-table" [dataSource]="doctors" aria-label="Elements">
+  
+
+    
+    
+
+    <ng-container matColumnDef="pic">
+      <th mat-header-cell *matHeaderCellDef >Mediziner*in</th>
+      <td mat-cell *matCellDef="let doctor">
+        <img [src]="getDoctorImage(doctor)" alt="Bild" style="width: 120px; height: 120px;">
+      </td>
+
+    
+
+          
+        </ng-container>
+        <p>
+        <ng-container matColumnDef="arztnr">
+          <th mat-header-cell *matHeaderCellDef>Code</th>
+          <td mat-cell *matCellDef="let doctor">{{doctor.arztnr}}</td>
+        </ng-container>
+      </p>
+       
+     
+        <ng-container matColumnDef="fullname">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let doctor">
+            <div class="oval-container">
+              {{doctor.fullname}}
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="strasnr">
+          <th mat-header-cell *matHeaderCellDef>Anschrift</th>
+          <td mat-cell *matCellDef="let doctor">{{doctor.strasnr}}</td>
+        </ng-container>
+        <ng-container matColumnDef="telenr">
+          <th mat-header-cell *matHeaderCellDef>Telefonnr.</th>
+          <td mat-cell *matCellDef="let doctor">{{doctor.telenr}} </td>
+        </ng-container>
+        <ng-container matColumnDef="sprechzeiten">
+          <th mat-header-cell *matHeaderCellDef style="width: 30%;">Sprechzeiten</th>
+          <td mat-cell *matCellDef="let doctor">{{doctor.sprechzeiten}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bearbeiten">
+          <th mat-header-cell *matHeaderCellDef >Bearbeitung</th>
+          <td mat-cell *matCellDef="let doctor">
+            <a [routerLink]="['/doctor', doctor.arztnr]">
+              <mat-icon class="material-icons">edit</mat-icon>
+            </a>
+            <mat-icon class="material-icons"> </mat-icon>
+            <mat-icon (click)="delete(doctor.arztnr)" class="material-icons">delete_outline</mat-icon>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let doctor; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator #paginator
+          [length]="doctors.length"
+          [pageIndex]="0"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 20]"
+          aria-label="Select page">
+      </mat-paginator>
+    </div>
+

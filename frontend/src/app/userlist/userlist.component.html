@@ -1,0 +1,48 @@
+
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="users" aria-label="Elements">
+    <!-- username Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Nutzername</th>
+      <td mat-cell *matCellDef="let user">{{user.usernamea}}</td>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>E-Mail</th>
+      <td mat-cell *matCellDef="let user">{{user.emaila}}</td>
+    </ng-container>
+
+    <!-- role Column -->
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Rolle</th>
+      <td mat-cell *matCellDef="let user">{{user.rolea}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="bearbeiten">
+      <th mat-header-cell *matHeaderCellDef> Bearbeitung </th>
+      <td mat-cell *matCellDef="let user">
+        <a [routerLink]="['user', user.usernamea]">
+       
+        </a>
+        <mat-icon class="material-icons"> </mat-icon>
+        <mat-icon (click)="delete(user.usernamea)" class="material-icons">delete_outline</mat-icon>
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let user; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+
+  <mat-paginator #paginator
+      [length]="users.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>

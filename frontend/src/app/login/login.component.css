@@ -1,0 +1,30 @@
+mat-card {
+    margin: 5% 20%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-card-header {
+    margin-bottom: 0%;
+  }
+  img {
+    display: block;
+    margin:  auto;
+    width: 500px; /* Beispielwert - passen Sie dies an Ihre Bedürfnisse an */
+    height: auto; /* Das Seitenverhältnis wird beibehalten */
+  }
+
+  
+
+
+ 
+  .form-container {
+    height: 700px; /* Beispielwert - passen Sie dies an Ihre Bedürfnisse an */
+    overflow-y: auto;
+  }
+
+  .mat-form-field {
+    background-color: #ffffff; /* Setzen Sie die gewünschte Hintergrundfarbe (in diesem Fall weiß) */
+  }

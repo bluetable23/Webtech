@@ -1,0 +1,50 @@
+<div class="form-container">
+ 
+ 
+
+<form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <img src="assets/bilder/titel.png" alt="Mein Bild">
+
+      <mat-card-header>
+        <mat-card-title>Bitte geben sie ihre Login Daten ein</mat-card-title>
+      </mat-card-header>
+
+      
+      <mat-card-content>
+        <p>
+          <mat-form-field class="full-width">
+            <mat-label>Nutzername</mat-label>
+            <input matInput placeholder="Nutzername" formControlName="usernamea">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="loginForm.controls['usernamea'].hasError('required')">
+              Nutzername <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+        </p>
+        <p>
+          <mat-form-field class="full-width">
+            <mat-label>Passwort</mat-label>
+            <input matInput placeholder="Passwort" formControlName="passworda" [type]="hide ? 'password' : 'text'">
+        
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide passworda'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        
+            <mat-error *ngIf="loginForm.controls['passworda'].hasError('required')">
+              Passwort <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </p>
+        
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  
+</div>

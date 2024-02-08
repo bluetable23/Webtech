@@ -1,0 +1,22 @@
+
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Nutzer Administration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+   
+      <p>
+        <mat-form-field class="full-width" >
+          <div class="button-list">
+            <button mat-stroked-button color="warn" [routerLink]="'/userlist'">User Verwaltung</button>
+            <button mat-stroked-button color="warn" [routerLink]="'/register'">User Registrieren</button>
+          </div>
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-nav-list>
+        <button mat-raised-button color="primary" [routerLink]="'/arzttable'">Zurück</button>
+      </mat-nav-list>
+    </mat-card-actions>
+  </mat-card>

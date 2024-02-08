@@ -1,0 +1,45 @@
+
+
+.full-width-table {
+  width: 100%;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+.full-width-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.full-width-table th,
+.full-width-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1mm  solid #3f51b56c;
+ 
+  
+}
+
+
+
+
+.full-width-table td {
+  font-family: "Segoe ui ";
+  font-weight: bold;
+
+  font-size: 19px;
+    color: rgba(104, 104, 108, 0.9); /* Grau mit 50% Transparenz */
+
+
+}
+
+.full-width-table th {
+  text-align: left;
+  font-size: 22px;
+  width: 80px;
+  font-weight: bold;
+  color: rgba(147, 147, 200, 0.9); /* Grau mit 50% Transparenz */
+
+}

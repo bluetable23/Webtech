@@ -1,0 +1,51 @@
+mat-card {
+    margin: 5% 20%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-card-header {
+    
+margin: 0 auto;
+    font-family: "Segoe ui Black ";
+    font-weight: bold;
+
+    font-size: 77px;
+    
+    font-weight: bold;
+    color: rgba(147, 147, 200, 0.9); /* Grau mit 50% Transparenz */
+    
+  }
+
+
+  .right-button {
+    margin-left: auto;
+    padding: 12px 24px; /* Ändere den Abstand um den Text im Button nach Bedarf */
+    font-size: 16px; /* Ändere die Schriftgröße nach Bedarf */
+
+
+  }
+  
+  
+
+  
+  img {
+    display: block;
+    margin:  auto;
+    width: 500px; /* Beispielwert - passen Sie dies an Ihre Bedürfnisse an */
+    height: auto; /* Das Seitenverhältnis wird beibehalten */
+  }
+
+ 
+  .form-container {
+    height: 700px; /* Beispielwert - passen Sie dies an Ihre Bedürfnisse an */
+    overflow-y: auto;
+
+
+  }
+
+  .mat-form-field {
+    background-color: #ffffff; /* Setzen Sie die gewünschte Hintergrundfarbe (in diesem Fall weiß) */
+  }

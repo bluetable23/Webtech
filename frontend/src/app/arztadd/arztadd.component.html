@@ -1,0 +1,82 @@
+<form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Registrierung</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="8-Stellige Krankenkassennr hinzufügen" class="full-width">
+            <input matInput placeholder="Krankenkassennr" formControlName="arztnr">
+            <mat-icon matSuffix >turned_in</mat-icon>
+            <mat-error *ngIf="registerForm.controls['arztnr'].hasError('required')">
+              Krankenkassennr <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      
+
+
+      
+      
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="Vor- und Nachname hinzufügen" class="full-width">
+            <input matInput placeholder="Name" formControlName="fullname">
+            <mat-icon matSuffix>person_add</mat-icon>
+            <mat-error *ngIf="registerForm.controls['fullname'].hasError('required')">
+              Name <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+  
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="Straße Hausnummer und Postleitzahl hinzufügen" class="full-width">
+            <input matInput placeholder="Adresse" formControlName="strasnr">
+            <mat-icon matSuffix>location_on</mat-icon>
+            <mat-error *ngIf="registerForm.controls['strasnr'].hasError('required')">
+             Adresse <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="Praxis Telefonnummer hinzufügen" class="full-width">
+            <input matInput placeholder="Telefonnummer" formControlName="telenr">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="registerForm.controls['telenr'].hasError('required')">
+              Telefonnummer <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field hintLabel="Sprechzeiten der Praxis hinzufügen" class="full-width">
+            <input matInput placeholder="Sprechzeiten" formControlName="sprechzeiten">
+            <mat-icon matSuffix>local_hospital</mat-icon>
+            <mat-error *ngIf="registerForm.controls['sprechzeiten'].hasError('required')">
+              Sprechzeiten <strong>erforderlich</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Registrieren</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

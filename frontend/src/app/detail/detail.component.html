@@ -1,0 +1,48 @@
+<main class="d-flex min-vh-100">
+  <fieldset class="container  mt-5">
+    <legend *ngIf="doctor" class="mb-4">Eintrag von {{ doctor.fullname }} aktualisieren
+    </legend>
+    <legend *ngIf="!doctor" class="mb-4">Eintrag aktualisieren</legend>
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="fullname">Name</label>
+        <div class="col-10">
+          <input type="text" class="form-control" id="fullname" placeholder="Name"
+          formControlName="fullnameControl" />
+        </div>
+      </div>
+
+
+
+
+
+      
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="strasnr">Adresse</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="strasnr" placeholder="Adresse"
+          formControlName="strasnrControl" />
+        </div>
+
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="telenr">Telefonnr</label>
+        <div class="col-10">
+          <input type="email" class="col-10 form-control" id="telenr" placeholder="Telefonnr" formControlName="telenrControl" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-2 col-form-label" for="sprechzeiten">Sprechzeiten</label>
+        <div class="col-10">
+          <input type="text" class="col-10 form-control" id="sprechzeiten" placeholder="Sprechzeiten" formControlName="sprechzeitenControl" />
+        </div>
+      </div>
+      <div class="row ">
+        <button type="submit" class="col-5 btn btn-secondary">Aktualisieren</button>
+        <div class="col-2"></div>
+        <button type="button" class="col-5 btn btn-secondary" (click)="cancel() ">Abbrechen</button>
+      </div>
+    </form>
+  </fieldset>
+</main>
