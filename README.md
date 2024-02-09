@@ -53,7 +53,75 @@ Liste mit Rollen und Löschoption
 Passwörter werden gehasht gespeichert
 
 ![Model](https://github.com/bluetable23/Webtech/blob/master/b11.png)
+-- Table: public.doctors
 
+-- DROP TABLE IF EXISTS public.doctors;
+
+CREATE TABLE IF NOT EXISTS public.doctors
+(
+    arztnr character varying COLLATE pg_catalog."default" NOT NULL DEFAULT 10000000,
+    fullname character varying COLLATE pg_catalog."default",
+    strasnr character varying COLLATE pg_catalog."default",
+    telenr character varying COLLATE pg_catalog."default",
+    sprechzeiten character varying COLLATE pg_catalog."default",
+    CONSTRAINT doctors_pkey PRIMARY KEY (arztnr)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.doctors
+    OWNER to postgres;
+
+-- Trigger: set_arztnr_trigger
+
+-- DROP TRIGGER IF EXISTS set_arztnr_trigger ON public.doctors;
+
+CREATE TRIGGER set_arztnr_trigger
+    BEFORE INSERT
+    ON public.doctors
+    FOR EACH ROW
+    WHEN (new.arztnr IS NULL)
+    EXECUTE FUNCTION public.set_arztnr();
+
+-- Table: public.users
+
+-- DROP TABLE IF EXISTS public.users;
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    usernamea character varying COLLATE pg_catalog."default",
+    passworda character varying COLLATE pg_catalog."default",
+    emaila character varying COLLATE pg_catalog."default",
+    rolea character varying COLLATE pg_catalog."default",
+    ida integer NOT NULL DEFAULT nextval('users_ida_seq'::regclass),
+    CONSTRAINT users_pkey PRIMARY KEY (ida)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.users
+    OWNER to postgres;
+
+"arztnr","fullname","strasnr","telenr","sprechzeiten"
+"43252313","Dr. Julia Becker","Lindenallee 15, 10587 Berlin","+4915212345678","Dienstag bis Samstag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Sonntag: Geschlossen"
+"54367892","Dr. med. Nzimegne Nguénang ","Herrmannstraße 102, 1234 Berlin","+49306257076","Montag bis Sonntag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr"
+"43252319","Dr. Alexander Müller","Eichenweg 5, 10789 Berlin","+4919012345678","Sonntag bis Donnerstag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Freitag: Geschlossen"
+"64637485","Dr. Amira Al-Mansour ","Rosenstraße 17, 10178 Berlin	","+4917512345678","Freitag bis Dienstag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Mittwoch: Geschlossen"
+"75481746","Dr. Ali Hassan","Akazienweg 3, 10965 Berlin","+4916812345678","Freitag bis Dienstag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Mittwoch: Geschlossen"
+"87654398","Dr. Sophie Richter","Ulmenweg 20, 10827 Berlin","+4919312345678","Mittwoch bis Sonntag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Montag: Geschlossen"
+"43252315","Dr. Sergio Fernandez","Birkenweg 7, 10963 Berlin","+4917612345678","Donnerstag bis Montag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr"
+"73824815","Dr. Muhammad Al-Mansour","Rosenstraße 17, 10178 Berlin","+4917512345678","Mittwoch bis Sonntag: 8:00 - 12:00 Uhr & 14:00 - 18:00 Uhr, Montag: Geschlossen"
+"43252312","Dr Marlies Müller","Schwedenweg 8, 12935 Berlin","+4917612345678","Mo-Fr: 8:00-12:00 Uhr & 14:00-18:00 Uhr
+Sa: 9:00-12:00 Uhr (nach Vereinbarung)
+So: Geschlossen"
+
+
+
+"usernamea","passworda","emaila","rolea","ida"
+"Anna","$2b$10$223/io8DMzzJon/fz6PWOO3y0YVsGDYQ4wziJGnopagEH6E.aMzu.","Anna@web.de","admin",51
+"Anna","$2b$10$4RAqhWcBizsDrEVYo79l5e.Qnbl1COMxlQafkZIkrdm1OP1tlWTT6","fgzwdgwad@fma.com","user",54
+"Anna","$2b$10$uWxcy/JQR7ZMa2jaAHlOtukAkrRp2flwsAjowQAJkd10z6.igenxe","esfedfew@web.de","admin",55
+"Anna22","$2b$10$iuFMd73sugcwfr28S6IPpueoOl41UyIoXdYD9fS1kf7d8jA02HHuS","esfedfew@web.de","user",56
 
 
 
